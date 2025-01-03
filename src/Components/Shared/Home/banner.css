@@ -1,0 +1,12 @@
+.carousel .thumbs-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel .thumbs {
+  display: inline-flex;
+}
+
+.carousel .thumb {
+  margin: 0 5px;
+}
