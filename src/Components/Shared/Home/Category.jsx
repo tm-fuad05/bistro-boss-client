@@ -17,23 +17,22 @@ import slide2 from "../../../assets/home/slide2.jpg";
 import slide3 from "../../../assets/home/slide3.jpg";
 import slide4 from "../../../assets/home/slide4.jpg";
 import slide5 from "../../../assets/home/slide5.jpg";
+import SectionTitle from "../SectionTitle";
 
 const Category = () => {
   return (
-    <div className="my-10">
-      <div className="w-fit mx-auto space-y-3">
-        <p className="text-yellow-500 italic">---From 11:00am to 10:00pm--</p>
-        <h2 className="uppercase text-2xl lg:text-3xl text-center font-bold py-2  border-t-[3px] border-b-[3px]">
-          order online
-        </h2>
-      </div>
+    <div className="my-10 mb-20">
+      <SectionTitle
+        subtitle={"---From 11:00am to 10:00pm--"}
+        title={"order online"}
+      ></SectionTitle>
       <Swiper
         slidesPerView={4}
         spaceBetween={20}
         freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         modules={[FreeMode, Pagination]}
         className="mySwiper font-cinzel w-11/12 mx-auto my-10 "
       >
