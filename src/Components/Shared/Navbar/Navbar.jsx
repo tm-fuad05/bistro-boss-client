@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import ourShop from "../../assets/icon/ourshop.png";
+import ourShop from "../../../assets/icon/ourshop.png";
 
 // css
 import "./navbar.css";

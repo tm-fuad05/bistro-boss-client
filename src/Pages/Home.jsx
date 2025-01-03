@@ -1,8 +1,10 @@
 import React from "react";
-import Banner from "../Components/Shared/Home/Banner";
-import Category from "../Components/Shared/Home/Category";
-import BistroBoss from "../Components/Shared/Home/BistroBoss";
-import FromOurMenu from "../Components/Shared/Home/FromOurMenu";
+import Banner from "../Components/Home/Banner";
+import BistroBoss from "../Components/Home/BistroBoss";
+import FromOurMenu from "../Components/Home/FromOurMenu";
+import Category from "../Components/Home/Category";
+import Recommends from "../Components/Home/Recommends";
+import Reviews from "../Components/Home/Reviews";
 
 const Home = () => {
   return (
@@ -11,6 +13,8 @@ const Home = () => {
       <Category></Category>
       <BistroBoss></BistroBoss>
       <FromOurMenu></FromOurMenu>
+      {/* <Recommends></Recommends> */}
+      <Reviews></Reviews>
     </div>
   );
 };
