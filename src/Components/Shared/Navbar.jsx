@@ -2,6 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import ourShop from "../../assets/icon/ourshop.png";
 
+// css
+import "./navbar.css";
+
 // Icons
 import { FaCircleUser } from "react-icons/fa6";
 
@@ -19,10 +22,10 @@ const Navbar = () => {
         <div className="flex gap-4 items-center">
           <div className="hidden uppercase lg:flex gap-3">
             <NavLink to="/">home</NavLink>
-            <NavLink to="/">contact us </NavLink>
-            <NavLink to="/">dashboard</NavLink>
-            <NavLink to="/">our menu</NavLink>
-            <NavLink className={"flex items-center "} to="/">
+            <NavLink to="/contact-us">contact us </NavLink>
+            <NavLink to="/dashboard">dashboard</NavLink>
+            <NavLink to="/our-menu">our menu</NavLink>
+            <NavLink className={"flex items-center "} to="/our-shop">
               our shop
               <img className="w-[25px]" src={ourShop} alt="" />
             </NavLink>

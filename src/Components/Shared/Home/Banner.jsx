@@ -10,12 +10,12 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 // css
-import "./banner.css";
+import "./home.css";
 
 const Banner = () => {
   return (
-    <div clas>
-      <Carousel autoPlay={true} infiniteLoop={true}>
+    <div>
+      <Carousel autoPlay={true} infiniteLoop={true} interval={4000}>
         <div>
           <img src={img1} />
         </div>
