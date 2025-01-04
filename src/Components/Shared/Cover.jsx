@@ -1,15 +1,15 @@
 import React from "react";
 import img from "../../assets/home/chef-service.jpg";
 
-const BistroBoss = () => {
+const Cover = ({ title }) => {
   return (
     <div
-      className={`bg-cover bg-center h-full w-9/12 mx-auto py-16 px-32 mb-20`}
+      className={`bg-cover bg-center h-full min-h-[500px] px-32 text-white flex justify-center items-center`}
       style={{ backgroundImage: `url(${img})` }}
     >
-      <div className="bg-white p-16 text-center space-y-3">
-        <h2 className="font-cinzel uppercase text-2xl lg:text-3xl ">
-          bistro boss
+      <div className={`bg-black bg-opacity-60 p-20 text-center space-y-3 `}>
+        <h2 className="font-cinzel font-semibold uppercase text-2xl lg:text-3xl ">
+          {title}
         </h2>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
@@ -23,4 +23,4 @@ const BistroBoss = () => {
   );
 };
 
-export default BistroBoss;
+export default Cover;

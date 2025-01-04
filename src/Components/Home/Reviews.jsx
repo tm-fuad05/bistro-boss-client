@@ -46,6 +46,7 @@ const Reviews = () => {
               <div className="w-fit mx-auto px-16 space-y-3 text-center">
                 <div>
                   <Rating
+                    readonly
                     initialRating={review.rating}
                     emptySymbol={
                       <FaRegStar className="text-xl lg:text-2xl text-yellow-600"></FaRegStar>
