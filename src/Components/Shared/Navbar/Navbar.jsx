@@ -25,7 +25,7 @@ const Navbar = () => {
             <NavLink to="/contact-us">contact us </NavLink>
             <NavLink to="/dashboard">dashboard</NavLink>
             <NavLink to="/our-menu">our menu</NavLink>
-            <NavLink className={"flex items-center "} to="/our-shop">
+            <NavLink className={"flex items-center "} to="/our-shop/salad">
               our shop
               <img className="w-[25px]" src={ourShop} alt="" />
             </NavLink>

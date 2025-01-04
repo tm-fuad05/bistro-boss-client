@@ -6,7 +6,8 @@ import banner from "../assets/menu/banner3.jpg";
 import MenuSectionShared from "../Components/Shared/MenuSectionShared";
 import useMenu from "../hooks/useMenu";
 import Button from "../Components/Shared/Button";
-import Cover from "../Components/Shared/Cover";
+import Cover from "../Components/Shared/Our Menu/Cover";
+import MenuTypes from "../Components/Shared/Our Menu/MenuTypes";
 
 const OurMenu = () => {
   const { loading, menu } = useMenu();
@@ -34,113 +35,28 @@ const OurMenu = () => {
           subtitle={"--Don't miss"}
           title={"today's offer"}
         ></SectionTitle>
-        <section className="my-20 grid grid-cols-1 md:grid-cols-2 gap-5">
-          {offerMenu.map((menu, idx) => (
-            <MenuSectionShared
-              key={idx}
-              title={menu.name}
-              des={menu.recipe}
-              price={menu.price}
-              img={menu.image}
-            ></MenuSectionShared>
-          ))}
-        </section>
-        <div className="w-fit mx-auto">
-          <Button
-            name={"order your favourite food"}
-            bgColor={"black"}
-            textColor={"black"}
-          ></Button>
-        </div>
+        <MenuTypes items={offerMenu}></MenuTypes>
       </section>
 
       {/* dessert section */}
       <Cover title={"Desserts"}></Cover>
       <section className="w-11/12 mx-auto">
-        <section className="my-20 grid grid-cols-1 md:grid-cols-2 gap-5">
-          {dessertMenu.map((menu, idx) => (
-            <MenuSectionShared
-              key={idx}
-              title={menu.name}
-              des={menu.recipe}
-              price={menu.price}
-              img={menu.image}
-            ></MenuSectionShared>
-          ))}
-        </section>
-        <div className="w-fit mx-auto">
-          <Button
-            name={"order your favourite food"}
-            bgColor={"black"}
-            textColor={"black"}
-          ></Button>
-        </div>
+        <MenuTypes items={dessertMenu}></MenuTypes>
       </section>
       {/* Pizza section */}
       <Cover title={"Pizzas"}></Cover>
       <section className="w-11/12 mx-auto">
-        <section className="my-20 grid grid-cols-1 md:grid-cols-2 gap-5">
-          {pizzaMenu.map((menu, idx) => (
-            <MenuSectionShared
-              key={idx}
-              title={menu.name}
-              des={menu.recipe}
-              price={menu.price}
-              img={menu.image}
-            ></MenuSectionShared>
-          ))}
-        </section>
-        <div className="w-fit mx-auto">
-          <Button
-            name={"order your favourite food"}
-            bgColor={"black"}
-            textColor={"black"}
-          ></Button>
-        </div>
+        <MenuTypes items={pizzaMenu}></MenuTypes>
       </section>
       {/* Salad section */}
       <Cover title={"Salads"}></Cover>
       <section className="w-11/12 mx-auto">
-        <section className="my-20 grid grid-cols-1 md:grid-cols-2 gap-5">
-          {saladMenu.map((menu, idx) => (
-            <MenuSectionShared
-              key={idx}
-              title={menu.name}
-              des={menu.recipe}
-              price={menu.price}
-              img={menu.image}
-            ></MenuSectionShared>
-          ))}
-        </section>
-        <div className="w-fit mx-auto">
-          <Button
-            name={"order your favourite food"}
-            bgColor={"black"}
-            textColor={"black"}
-          ></Button>
-        </div>
+        <MenuTypes items={saladMenu}></MenuTypes>
       </section>
       {/* Soup section */}
       <Cover title={"soups"}></Cover>
       <section className="w-11/12 mx-auto">
-        <section className="my-20 grid grid-cols-1 md:grid-cols-2 gap-5">
-          {soupMenu.map((menu, idx) => (
-            <MenuSectionShared
-              key={idx}
-              title={menu.name}
-              des={menu.recipe}
-              price={menu.price}
-              img={menu.image}
-            ></MenuSectionShared>
-          ))}
-        </section>
-        <div className="w-fit mx-auto">
-          <Button
-            name={"order your favourite food"}
-            bgColor={"black"}
-            textColor={"black"}
-          ></Button>
-        </div>
+        <MenuTypes items={soupMenu}></MenuTypes>
       </section>
     </div>
   );
