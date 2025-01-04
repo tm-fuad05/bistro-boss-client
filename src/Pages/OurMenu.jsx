@@ -32,7 +32,7 @@ const OurMenu = () => {
       {/* offer section */}
       <section className="w-11/12 mx-auto">
         <SectionTitle
-          subtitle={"--Don't miss"}
+          subtitle={"--don't miss"}
           title={"today's offer"}
         ></SectionTitle>
         <MenuTypes items={offerMenu}></MenuTypes>
@@ -41,22 +41,22 @@ const OurMenu = () => {
       {/* dessert section */}
       <Cover title={"Desserts"}></Cover>
       <section className="w-11/12 mx-auto">
-        <MenuTypes items={dessertMenu}></MenuTypes>
+        <MenuTypes items={dessertMenu} category={"dessert"}></MenuTypes>
       </section>
       {/* Pizza section */}
       <Cover title={"Pizzas"}></Cover>
       <section className="w-11/12 mx-auto">
-        <MenuTypes items={pizzaMenu}></MenuTypes>
+        <MenuTypes items={pizzaMenu} category={"pizza"}></MenuTypes>
       </section>
       {/* Salad section */}
       <Cover title={"Salads"}></Cover>
       <section className="w-11/12 mx-auto">
-        <MenuTypes items={saladMenu}></MenuTypes>
+        <MenuTypes items={saladMenu} category={"salad"}></MenuTypes>
       </section>
       {/* Soup section */}
       <Cover title={"soups"}></Cover>
-      <section className="w-11/12 mx-auto">
-        <MenuTypes items={soupMenu}></MenuTypes>
+      <section className="w-11/12 mx-auto pb-20">
+        <MenuTypes items={soupMenu} category={"soup"}></MenuTypes>
       </section>
     </div>
   );

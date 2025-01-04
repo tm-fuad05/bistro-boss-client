@@ -41,12 +41,14 @@ const ContactUs = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-20">
         {contactInfo.map((info) => (
-          <div className="flex flex-col">
+          <div className="flex flex-col border border-gray-100">
             <div className="bg-[#D1A054] flex justify-center py-3">
               {info.icon}
             </div>
             <div className="bg-[#f3f3f3] mx-5 mb-5 text-center space-y-2 flex-grow p-5 py-10">
-              <h5 className="text-xl lg:text-2xl uppercase">{info.heading}</h5>
+              <h5 className="text-xl lg:text-2xl uppercase font-semibold">
+                {info.heading}
+              </h5>
               <p className="capitalize">{info.value}</p>
             </div>
           </div>
@@ -143,9 +145,9 @@ const ContactUs = () => {
         <div className="mt-6 w-fit mx-auto">
           <button
             type="submit"
-            className="bg-gradient-to-r from-[#855f24] to-[#b48030] text-white px-6 py-3 flex items-center gap-2 hover:bg-yellow-700 transition"
+            className="bg-gradient-to-r from-[#855f24] to-[#b48030] text-white px-6 py-3 flex items-center gap-2 hover:opacity-50 transition"
           >
-            Send Message <span>🚀</span>
+            Send Message
           </button>
         </div>
       </form>
