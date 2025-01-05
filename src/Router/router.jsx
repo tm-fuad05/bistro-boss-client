@@ -9,6 +9,7 @@ import Pizza from "../Components/Our Shop/Pizza";
 import Soups from "../Components/Our Shop/Soups";
 import Dessert from "../Components/Our Shop/Dessert";
 import Drinks from "../Components/Our Shop/Drinks";
+import Login from "../Pages/Auth/Login";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/contact-us",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },

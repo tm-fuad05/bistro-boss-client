@@ -27,19 +27,15 @@ const ContactUs = () => {
   ];
 
   return (
-    <div className=" w-10/12 mx-auto">
-      <SharedBanner
-        title={"our menu"}
-        subtitle={"would you like to try a dish?"}
-        banner={banner}
-      ></SharedBanner>
+    <div>
+      <SharedBanner title={"contact us"} banner={banner}></SharedBanner>
       <div className="my-20">
         <SectionTitle
           subtitle={"---visit us---"}
           title={"our location"}
         ></SectionTitle>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-20">
+      <div className="w-10/12 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5 mb-20">
         {contactInfo.map((info) => (
           <div className="flex flex-col border border-gray-100">
             <div className="bg-[#D1A054] flex justify-center py-3">
@@ -61,7 +57,7 @@ const ContactUs = () => {
         ></SectionTitle>
       </div>
 
-      <form className="bg-gray-100 p-10 my-20 lg:w-10/12 mx-auto">
+      <form className="bg-gray-100 p-10 my-20 md:w-10/12 mx-auto">
         {/* Name and Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>

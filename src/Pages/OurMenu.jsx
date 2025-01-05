@@ -23,11 +23,7 @@ const OurMenu = () => {
 
   return (
     <div className="space-y-20">
-      <SharedBanner
-        title={"our menu"}
-        subtitle={"would you like to try a dish?"}
-        banner={banner}
-      ></SharedBanner>
+      <SharedBanner title={"our menu"} banner={banner}></SharedBanner>
 
       {/* offer section */}
       <section className="w-11/12 mx-auto">

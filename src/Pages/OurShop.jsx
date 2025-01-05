@@ -8,11 +8,7 @@ const OurShop = () => {
   return (
     <>
       <div>
-        <SharedBanner
-          title={"our shop"}
-          subtitle={"would you like to try a dish?"}
-          banner={banner}
-        ></SharedBanner>
+        <SharedBanner title={"our shop"} banner={banner}></SharedBanner>
       </div>
       <div
         id="menu-types"

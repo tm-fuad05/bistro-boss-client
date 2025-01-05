@@ -4,6 +4,7 @@ import MenuSectionShared from "../Shared/MenuSectionShared";
 import SectionTitle from "../Shared/SectionTitle";
 import Button from "../Shared/Button";
 import useMenu from "../../hooks/useMenu";
+import { Link } from "react-router-dom";
 
 const FromOurMenu = () => {
   const { loading, menu } = useMenu();
@@ -32,13 +33,15 @@ const FromOurMenu = () => {
           ></MenuSectionShared>
         ))}
       </section>
-      <div className="w-fit mx-auto">
-        <Button
-          name={"view full menu"}
-          bgColor={"black"}
-          textColor={"black"}
-        ></Button>
-      </div>
+      <Link to="/our-menu">
+        <div className="w-fit mx-auto">
+          <Button
+            name={"view full menu"}
+            bgColor={"black"}
+            textColor={"black"}
+          ></Button>
+        </div>
+      </Link>
     </div>
   );
 };

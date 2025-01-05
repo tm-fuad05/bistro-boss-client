@@ -15,14 +15,17 @@ import { FaQuoteLeft } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import Rating from "react-rating";
+import axios from "axios";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("../reviews.json")
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
+    const fetchAllReviews = async () => {
+      const { data } = await axios.get("http://localhost:5000/reviews");
+      setReviews(data);
+    };
+    fetchAllReviews();
   }, []);
 
   return (
