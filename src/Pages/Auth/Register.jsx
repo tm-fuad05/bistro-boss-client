@@ -1,44 +1,38 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import bg from "../../assets/reservation/wood-grain-pattern-gray1x.png";
 import auth from "../../assets/others/authentication1.png";
-import {
-  loadCaptchaEnginge,
-  LoadCanvasTemplate,
-  validateCaptcha,
-} from "react-simple-captcha";
+
 // Icons
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
-const Login = () => {
-  const captchaRef = useRef(null);
-  const [disableLogin, setDisableLogin] = useState(true);
-  const [disableValidate, setDisableValidate] = useState(false);
-
-  useEffect(() => {
-    loadCaptchaEnginge(4);
-  }, []);
-
-  const handleValidateCaptcha = (e) => {
-    e.preventDefault();
-    const user_captcha_value = captchaRef.current.value;
-
-    if (validateCaptcha(user_captcha_value)) {
-      setDisableLogin(false);
-      setDisableValidate(true);
-    }
-  };
-
+const Register = () => {
   return (
     <div
-      className="bg-cover bg-center min-h-screen flex items-center justify-center"
+      className="bg-cover bg-center min-h-screen flex justify-center items-center"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <div className="w-11/12 md:w-9/12 mx-auto flex justify-between items-center">
-        <img className="hidden md:block w-1/2 h-full" src={auth} alt="" />
+      <div className="flex flex-row-reverse justify-between w-11/12 md:w-9/12 items-center">
+        <img className="w-1/2 h-full hidden md:block" src={auth} alt="" />
         <form className="flex-grow">
-          <h2 className="text-center mb-5 text-2xl font-bold">Login</h2>
+          <h2 className="text-center mb-5 text-2xl font-bold">Sign Up</h2>
+          {/* Email Input */}
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Type here"
+              className="mt-1 w-full input border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#dbb884]"
+            />
+          </div>
           {/* Email Input */}
           <div className="mb-4">
             <label
@@ -73,33 +67,9 @@ const Login = () => {
             />
           </div>
 
-          {/* Captcha */}
-          <div className="mb-4">
-            <label>
-              <LoadCanvasTemplate />
-            </label>
-
-            <input
-              ref={captchaRef}
-              type="text"
-              id="captcha"
-              name="captcha"
-              placeholder="Type the text above"
-              className="mt-1 w-full input border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#dbb884]"
-            />
-            <button
-              disabled={disableValidate}
-              onClick={handleValidateCaptcha}
-              className="btn btn-sm bg-transparent border-[2px] border-[#dbb884] mt-2"
-            >
-              Validate
-            </button>
-          </div>
-
           {/* Submit Button */}
 
           <button
-            disabled={disableLogin}
             type="submit"
             className="btn w-full bg-[#dbb884] text-white  rounded-lg hover:bg-yellow-600"
           >
@@ -108,12 +78,12 @@ const Login = () => {
 
           {/* Create Account Link */}
           <p className="mt-4 text-center text-sm text-gray-600">
-            New here?{" "}
+            Already registered?{" "}
             <a
               href="/create-account"
               className="text-yellow-600 hover:underline"
             >
-              Create a New Account
+              Go to log in
             </a>
           </p>
 
@@ -147,4 +117,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

@@ -10,6 +10,7 @@ import Soups from "../Components/Our Shop/Soups";
 import Dessert from "../Components/Our Shop/Dessert";
 import Drinks from "../Components/Our Shop/Drinks";
 import Login from "../Pages/Auth/Login";
+import Register from "../Pages/Auth/Register";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/sign-up",
+        element: <Register></Register>,
       },
     ],
   },
