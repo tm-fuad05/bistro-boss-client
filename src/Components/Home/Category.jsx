@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
 
 // import required modules
 import { FreeMode, Pagination } from "swiper/modules";
@@ -18,6 +17,7 @@ import slide3 from "../../assets/home/slide3.jpg";
 import slide4 from "../../assets/home/slide4.jpg";
 import slide5 from "../../assets/home/slide5.jpg";
 import SectionTitle from "../Shared/SectionTitle";
+import "./home.css";
 
 const Category = () => {
   return (
@@ -30,10 +30,7 @@ const Category = () => {
         slidesPerView={4}
         spaceBetween={20}
         freeMode={true}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        modules={[FreeMode, Pagination]}
+        modules={[FreeMode]}
         className="mySwiper font-cinzel w-11/12 mx-auto my-10 "
       >
         <SwiperSlide>

@@ -11,6 +11,7 @@ import Dessert from "../Components/Our Shop/Dessert";
 import Drinks from "../Components/Our Shop/Drinks";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/our-shop",
-        element: <OurShop></OurShop>,
+        element: (
+          <PrivateRoute>
+            <OurShop></OurShop>
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "/our-shop/salad",

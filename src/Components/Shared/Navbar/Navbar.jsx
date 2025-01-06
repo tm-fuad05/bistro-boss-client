@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import ourShop from "../../../assets/icon/ourshop.png";
 
@@ -9,9 +9,23 @@ import "./navbar.css";
 import { FaCircleUser } from "react-icons/fa6";
 import { MdOutlineMenu } from "react-icons/md";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
+import useAuth from "../../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, signOutUser } = useAuth();
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => toast.success("Signned out"))
+      .catch((error) => alert(error));
+  };
+
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuClose = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <div className=" bg-black bg-opacity-50 fixed z-20 w-full">
@@ -44,9 +58,15 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="flex items-center gap-2">
-            <Link to="/login">
-              <button>SIGN IN</button>
-            </Link>
+            <div>
+              {user && user?.email ? (
+                <button onClick={handleSignOut}>SIGN OUT</button>
+              ) : (
+                <Link to="/login">
+                  <button>SIGN IN</button>
+                </Link>
+              )}
+            </div>
             <FaCircleUser className="text-3xl"></FaCircleUser>
           </div>
           <div
@@ -57,6 +77,61 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <aside
+        className={` ${
+          menuOpen
+            ? "translate-x-0 opacity-100 z-20"
+            : "-translate-x-[200px] opacity-0 z-[-1]"
+        } lg:hidden bg-[#dbb884] p-4  absolute top-0 left-0 md:w-5/12 w-7/12  transition-all duration-300 min-h-screen`}
+      >
+        <div className="font-cinzel leading-4 mb-5 pb-3 border-b border-black flex justify-between items-start">
+          <div>
+            <h3 className=" font-extrabold text-2xl tracking-wide ">
+              BISTRO BOSS
+            </h3>
+            <p className="font-semibold tracking-[7px]"> RESTAURANT</p>
+          </div>
+          <button onClick={handleMenuClose}>
+            <MdOutlineRestaurantMenu className="text-3xl border border-black p-1" />
+          </button>
+        </div>
+
+        <ul className="items-center  text-[1rem] text-black flex flex-col capitalize text-center">
+          <NavLink
+            className={"py-2 hover:bg-gray-100 rounded-md w-full"}
+            to="/"
+          >
+            home
+          </NavLink>
+          <NavLink
+            className={"py-2 hover:bg-gray-100 rounded-md w-full"}
+            to="/contact-us"
+          >
+            contact us{" "}
+          </NavLink>
+          <NavLink
+            className={"py-2 hover:bg-gray-100 rounded-md w-full"}
+            to="/dashboard"
+          >
+            dashboard
+          </NavLink>
+          <NavLink
+            className={"py-2 hover:bg-gray-100 rounded-md w-full"}
+            to="/our-menu"
+          >
+            our menu
+          </NavLink>
+          <NavLink
+            className={
+              "flex justify-center items-center py-2 hover:bg-gray-100 rounded-md w-full"
+            }
+            to="/our-shop/salad"
+          >
+            our shop
+            <img className="w-[25px]" src={ourShop} alt="" />
+          </NavLink>
+        </ul>
+      </aside>
     </div>
   );
 };

@@ -5,17 +5,27 @@ import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
+  LoadCanvasTemplateNoReload,
 } from "react-simple-captcha";
 // Icons
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { signInWithGoogle, signInUser, user, setUser } = useAuth();
+  console.log(user);
+
   const captchaRef = useRef(null);
   const [disableLogin, setDisableLogin] = useState(true);
   const [disableValidate, setDisableValidate] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  // Captcha
   useEffect(() => {
     loadCaptchaEnginge(4);
   }, []);
@@ -30,6 +40,36 @@ const Login = () => {
     }
   };
 
+  // Authentication
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const userInfo = { email, password };
+    console.log(userInfo);
+
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user);
+        navigate(location?.state ? location.state : "/");
+        toast.success("Successfully logged in");
+      })
+      .catch(() => alert("Invalid email or password"));
+  };
+
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        setUser(result.user);
+        navigate("/");
+        toast.success("Successfully Signed in");
+      })
+      .catch((error) => alert(error));
+  };
+
   return (
     <div
       className="bg-cover bg-center min-h-screen flex items-center justify-center"
@@ -37,7 +77,7 @@ const Login = () => {
     >
       <div className="w-11/12 md:w-9/12 mx-auto flex justify-between items-center">
         <img className="hidden md:block w-1/2 h-full" src={auth} alt="" />
-        <form className="flex-grow">
+        <form onSubmit={handleLogin} className="flex-grow">
           <h2 className="text-center mb-5 text-2xl font-bold">Login</h2>
           {/* Email Input */}
           <div className="mb-4">
@@ -76,7 +116,7 @@ const Login = () => {
           {/* Captcha */}
           <div className="mb-4">
             <label>
-              <LoadCanvasTemplate />
+              <LoadCanvasTemplateNoReload />
             </label>
 
             <input
@@ -109,12 +149,13 @@ const Login = () => {
           {/* Create Account Link */}
           <p className="mt-4 text-center text-sm text-gray-600">
             New here?{" "}
-            <a
+            <Link
+              to="/sign-up"
               href="/create-account"
               className="text-yellow-600 hover:underline"
             >
               Create a New Account
-            </a>
+            </Link>
           </p>
 
           {/* Social Media Sign In */}
@@ -128,6 +169,7 @@ const Login = () => {
                 <FaFacebookF />
               </button>
               <button
+                onClick={handleSignInWithGoogle}
                 type="button"
                 className="w-10 h-10 border-2 border-gray-500 rounded-full flex items-center justify-center hover:bg-gray-300"
               >

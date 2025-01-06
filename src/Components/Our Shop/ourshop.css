@@ -1,5 +1,5 @@
 #menu-types a.active {
   color: #d97706;
   border-bottom: 1px solid #d97706;
-  transition-duration: 500ms;
+  transition: all 0.5s;
 }

@@ -12,7 +12,7 @@ const OurShop = () => {
       </div>
       <div
         id="menu-types"
-        className="uppercase grid grid-cols-3 md:grid-cols-5 gap-3 w-11/12 md:w-7/12 mx-auto text-center my-16 font-medium"
+        className="uppercase grid grid-cols-3 md:grid-cols-5 gap-3 w-11/12 md:w-7/12 mx-auto text-center my-16 font-medium border-b"
       >
         <NavLink to="/our-shop/salad" className="pb-2">
           salad

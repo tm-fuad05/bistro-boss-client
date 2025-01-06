@@ -8,7 +8,11 @@ const Soups = () => {
   const items = menu.filter((item) => item.category === "soup");
 
   if (loading) {
-    return <h2>loading...</h2>;
+    return (
+      <div className="flex justify-center items-center h-[300px]">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
   }
 
   return (
