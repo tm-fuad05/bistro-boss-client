@@ -11,9 +11,13 @@ import { MdOutlineMenu } from "react-icons/md";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
+import { IoMdCart } from "react-icons/io";
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
   const { user, signOutUser } = useAuth();
+  const { cart } = useCart();
+  console.log(cart);
 
   const handleSignOut = () => {
     signOutUser()
@@ -29,7 +33,10 @@ const Navbar = () => {
 
   return (
     <div className=" bg-black bg-opacity-50 fixed z-20 w-full">
-      <nav className="py-3 flex items-center justify-between w-11/12 mx-auto  text-white">
+      <nav
+        id="main-nav"
+        className="py-3 flex items-center justify-between w-11/12 mx-auto  text-white"
+      >
         <div className="font-cinzel leading-4">
           <h3 className=" font-extrabold text-2xl tracking-wide ">
             BISTRO BOSS
@@ -57,6 +64,12 @@ const Navbar = () => {
               <img className="w-[25px]" src={ourShop} alt="" />
             </NavLink>
           </div>
+          <div className="relative rounded-full p-2 hover:bg-gray-500">
+            <IoMdCart className="text-2xl" />
+            <div className="absolute -top-[0px] -right-[0px] badge border-[#dbb884] bg-[#dbb884] border badge-xs">
+              {cart.length}
+            </div>
+          </div>
           <div className="flex items-center gap-2">
             <div>
               {user && user?.email ? (
@@ -77,12 +90,10 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <aside
+      {/* <aside
         className={` ${
-          menuOpen
-            ? "translate-x-0 opacity-100 z-20"
-            : "-translate-x-[200px] opacity-0 z-[-1]"
-        } lg:hidden bg-[#dbb884] p-4  absolute top-0 left-0 md:w-5/12 w-7/12  transition-all duration-300 min-h-screen`}
+          menuOpen ? "left-0 opacity-100 z-20" : "-left-[500px]"
+        } lg:hidden bg-[#dbb884] p-4  absolute top-0 left-0 md:w-5/12 w-7/12  transition-all duration-500 min-h-screen`}
       >
         <div className="font-cinzel leading-4 mb-5 pb-3 border-b border-black flex justify-between items-start">
           <div>
@@ -98,7 +109,7 @@ const Navbar = () => {
 
         <ul className="items-center  text-[1rem] text-black flex flex-col capitalize text-center">
           <NavLink
-            className={"py-2 hover:bg-gray-100 rounded-md w-full"}
+            className={"py-2 hover:bg-gray-300 rounded-md w-full"}
             to="/"
           >
             home
@@ -131,7 +142,7 @@ const Navbar = () => {
             <img className="w-[25px]" src={ourShop} alt="" />
           </NavLink>
         </ul>
-      </aside>
+      </aside> */}
     </div>
   );
 };

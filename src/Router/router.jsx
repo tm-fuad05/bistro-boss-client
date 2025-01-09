@@ -12,6 +12,8 @@ import Drinks from "../Components/Our Shop/Drinks";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Pages/User Pages/Dashboard";
+import Cart from "../Pages/User Pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -27,12 +29,18 @@ const router = createBrowserRouter([
         element: <OurMenu></OurMenu>,
       },
       {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            path: "/dashboard/cart",
+            element: <Cart></Cart>,
+          },
+        ],
+      },
+      {
         path: "/our-shop",
-        element: (
-          <PrivateRoute>
-            <OurShop></OurShop>
-          </PrivateRoute>
-        ),
+        element: <OurShop></OurShop>,
         children: [
           {
             path: "/our-shop/salad",

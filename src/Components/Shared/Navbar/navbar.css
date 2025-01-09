@@ -1,3 +1,7 @@
-nav a.active {
+#main-nav a.active {
   color: yellow;
+}
+
+aside a.active {
+  color: white;
 }

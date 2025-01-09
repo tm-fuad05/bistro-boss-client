@@ -23,22 +23,23 @@ const Login = () => {
   const [disableLogin, setDisableLogin] = useState(true);
   const [disableValidate, setDisableValidate] = useState(false);
   const location = useLocation();
+  const from = location?.state ? location.state : "/";
   const navigate = useNavigate();
 
   // Captcha
-  useEffect(() => {
-    loadCaptchaEnginge(4);
-  }, []);
+  // useEffect(() => {
+  //   loadCaptchaEnginge(4);
+  // }, []);
 
-  const handleValidateCaptcha = (e) => {
-    e.preventDefault();
-    const user_captcha_value = captchaRef.current.value;
+  // const handleValidateCaptcha = (e) => {
+  //   e.preventDefault();
+  //   const user_captcha_value = captchaRef.current.value;
 
-    if (validateCaptcha(user_captcha_value)) {
-      setDisableLogin(false);
-      setDisableValidate(true);
-    }
-  };
+  //   if (validateCaptcha(user_captcha_value)) {
+  //     setDisableLogin(false);
+  //     setDisableValidate(true);
+  //   }
+  // };
 
   // Authentication
 
@@ -54,7 +55,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         setUser(result.user);
-        navigate(location?.state ? location.state : "/");
+        navigate(from);
         toast.success("Successfully logged in");
       })
       .catch(() => alert("Invalid email or password"));
@@ -64,7 +65,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         setUser(result.user);
-        navigate("/");
+        navigate(from);
         toast.success("Successfully Signed in");
       })
       .catch((error) => alert(error));
@@ -114,7 +115,7 @@ const Login = () => {
           </div>
 
           {/* Captcha */}
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label>
               <LoadCanvasTemplateNoReload />
             </label>
@@ -134,12 +135,11 @@ const Login = () => {
             >
               Validate
             </button>
-          </div>
+          </div> */}
 
           {/* Submit Button */}
 
           <button
-            disabled={disableLogin}
             type="submit"
             className="btn w-full bg-[#dbb884] text-white  rounded-lg hover:bg-yellow-600"
           >
